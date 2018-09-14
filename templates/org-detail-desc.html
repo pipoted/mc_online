@@ -1,0 +1,31 @@
+{% extends 'base_org.html' %}{% load staticfiles %}<!DOCTYPE html>
+
+{% block title %}机构介绍{% endblock %}
+{% block page_path %}机构介绍{% endblock %}
+{% block custom_fav %}
+	{% if has_fav %}
+		已收藏
+	{% else %}
+		收藏
+	{% endif %}
+{% endblock %}
+{% block logo %}/media/{{ course_org.image }}{% endblock %}
+
+{% block right_form %}
+	<div class="right companycenter layout">
+		<div class="head">
+			<h1>机构介绍</h1>
+		</div>
+		<div class="des">
+			{{ course_org.desc }}
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block custom_js %}
+	<script>
+		$('#content-desc').addClass('active2');
+	</script>
+{% endblock %}
+

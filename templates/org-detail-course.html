@@ -1,0 +1,92 @@
+<!DOCTYPE html>{% extends 'base_org.html' %}{% load static %}
+
+{% block title %}机构课程{% endblock %}
+{% block logo %}/media/{{ course_org.image }}{% endblock %}
+{% block custom_fav %}
+	{% if has_fav %}
+		已收藏
+	{% else %}
+		收藏
+	{% endif %}
+{% endblock %}
+{% block page_path %}机构课程{% endblock %}
+
+{% block right_form %}
+	<div class="right companycenter layout">
+		<div class="head">
+			<h1>机构课程</h1>
+		</div>
+		<div class="brief group_list">
+
+			{% for course in all_courses %}
+				<div class="module1_5 box">
+					<a class="comp-img-box" href="course-detail.html">
+						<img width="214" height="195" src="/media/{{ course.image }}"/>
+					</a>
+					<div class="des">
+						<a href="course-detail.html">
+							<h2>{{ course.name }}</h2></a>
+						<span class="fl">课时：<i class="key">{{ course.learn_times }}</i>
+						</span>
+						<span class="fr">学习人数：{{ course.students_nums }}</span>
+					</div>
+					<div class="bottom">
+						<span class="fl">{{ course_org.name }}</span>
+						<span class="star fr  notlogin
+                            " data-favid="13" data-fav-type="4">
+							{{ course_org.fav_nums }}
+						</span>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+
+		{# 分页 #}
+		<div class="pageturn">
+			<ul class="pagelist">
+				{% if page_data.has_previous %}
+					<li class='long'>
+						<a href='?{{ page_data.previous_page_number.querystring }}'>上一页</a>
+					</li>
+					<!-- /.long -->
+				{% endif %}
+
+				{% for page in page_data.pages %}
+					{% if page %}
+						{% ifequal page page_data.number %}
+							<li class='active'>
+								<a href='?{{ page.querystring }}'>{{ page }}</a>
+							</li>
+						{% else %}
+							<li>
+								<a href='?{{ page.querystring }}' class='page'>{{ page }}</a>
+							</li>
+							<!-- /.page -->
+						{% endifequal %}
+					{% else %}
+						<li class='none'>
+							<a href=''>...</a>
+						</li>
+						<!-- /.none -->
+					{% endif %}
+				{% endfor %}
+
+				{% if page_data.has_next %}
+					<li class='long'>
+						<a href='?{{ page_data.next_page_number.querystring }}'>下一页</a>
+					</li>
+					<!-- /.long -->
+				{% endif %}
+			</ul>
+		</div>
+	</div>
+{% endblock %}
+
+{% block custom_js %}
+	<script type="text/javascript">
+		$('#content-text').addClass('active2');
+	</script>
+{% endblock %}
+
+
+

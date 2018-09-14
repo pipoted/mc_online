@@ -48,6 +48,8 @@ INSTALLED_APPS = [
 	'courses',
 	'xadmin',
 	'crispy_forms',
+	'captcha',
+	'pure_pagination',
 ]
 
 MIDDLEWARE = [
@@ -138,3 +140,14 @@ STATICFILES_DIRS = [
 ]
 
 AUTH_USER_MODEL = 'users.UserProfile'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# 邮箱配置
+EMAIL_HOST = 'smtp.sina.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = 'projectsedu@sina.com'
+EMAIL_HOST_PASSWORD = 'admin123'
+EMAIL_USE_TLS = False
+EMAIL_FROM = 'projectsedu@sina.com'

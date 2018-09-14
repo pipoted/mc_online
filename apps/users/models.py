@@ -29,6 +29,9 @@ class UserProfile(AbstractUser):
 	
 	def __unicode__(self):
 		return self.username
+	
+	def __str__(self):
+		return self.username
 
 
 class EmailVarifyRecord(models.Model):
@@ -51,6 +54,9 @@ class EmailVarifyRecord(models.Model):
 	
 	def __unicode__(self):
 		return '{0}({1})'.format(self.code, self.email)
+	
+	def __str__(self):
+		return '{0}({1})'.format(self.code, self.email)
 
 
 class Banner(models.Model):
@@ -69,3 +75,10 @@ class Banner(models.Model):
 	class Meta:
 		verbose_name = u'轮播图'
 		verbose_name_plural = verbose_name
+	
+	
+	def __unicode__(self):
+		return self.title
+	
+	def __str__(self):
+		return self.title

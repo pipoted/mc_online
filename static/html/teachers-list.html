@@ -9,9 +9,9 @@
 	<link rel="stylesheet" type="text/css" href="../css/reset.css">
 	<link rel="stylesheet" type="text/css" href="../css/animate.css">
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
-    
-    <script src="../js/jquery.min.js" type="text/javascript"></script>
-    <script src="../js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+
+    <script src="{% static 'js/jquery.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/jquery-migrate-1.2.1.min.js' %}" type="text/javascript"></script>
 
 </head>
 <body>
@@ -23,10 +23,10 @@
 					<div class="fl"><p>服务电话：<b>33333333</b></p></div>
 					<!--登录后跳转-->
 
-                        
+
                         <a style="color:white" class="fr registerbtn" href="register.html">注册</a>
                         <a style="color:white" class="fr loginbtn" href="login.html">登录</a>
-                    
+
 
 
 				</div>
@@ -51,8 +51,8 @@
                     </div>
                 </div>
             </div>
-            
-            
+
+
 			<nav>
 				<div class="nav">
 					<div class="wp">
@@ -71,7 +71,7 @@
 					</div>
 				</div>
 			</nav>
-            
+
 			</div>
     </header>
 </section>
@@ -98,7 +98,7 @@
 				</ul>
                 <div class="fr butler-num">共<span class="key">9</span>人&nbsp;&nbsp;&nbsp;</div>
 			</div>
-                
+
                 <dl class="des">
 					<dt>
 						<a href="/org/teacher/detail/1/">
@@ -131,37 +131,37 @@
 					</dd>
                     <a class="buy buyservice" href="/org/teacher/detail/1/"><br/>查看<br/>详情</a>
                 </dl>
-                
+
 
 
 		</div>
 		<div class="pageturn">
             <ul class="pagelist">
-                
 
-                
-                    
-                        
+
+
+
+
                             <li class="active"><a href="?page=1">1</a></li>
-                        
-                    
-                
-                    
-                        
+
+
+
+
+
                             <li><a href="?page=2" class="page">2</a></li>
-                        
-                    
-                
-                
+
+
+
+
                     <li class="long"><a href="?page=2">下一页</a></li>
-                
+
 
             </ul>
         </div>
 	</div>
 	<div class="right layout">
 		<div class="head">讲师排行榜</div>
-            
+
             <dl class="des">
                 <span class="num fl">1</span>
                 <a href="/diary/hk_detail/6/">
@@ -176,7 +176,7 @@
                     <p>工作年限：<span>5年</span></p>
                 </dd>
             </dl>
-            
+
             <dl class="des">
                 <span class="num fl">1</span>
                 <a href="/diary/hk_detail/6/">
@@ -191,7 +191,7 @@
                     <p>工作年限：<span>5年</span></p>
                 </dd>
             </dl>
-            
+
 
 	</div>
     </div>
@@ -223,11 +223,11 @@
         <li class="totop"></li>
     </ul>
 </section>
-<script src="../js/selectUi.js" type='text/javascript'></script>
+<script src="{% static 'js/selectUi.js' %}" type='text/javascript'></script>
 <script src="../js/deco-common.js" type='text/javascript'></script>
-<script type="text/javascript" src="../js/plugins/laydate/laydate.js"></script>
-<script src="../js/plugins/layer/layer.js"></script>
-<script src="../js/plugins/queryCity/js/public.js" type="text/javascript"></script>
+<script type="text/javascript" src="{% static 'js/plugins/laydate/laydate.js' %}"></script>
+<script src="{% static 'js/plugins/layer/layer.js' %}"></script>
+<script src="{% static 'js/plugins/queryCity/js/public.js' %}" type="text/javascript"></script>
 <script src="../js/unslider.js" type="text/javascript"></script>
 <script src="../js/plugins/jquery.scrollLoading.js"  type="text/javascript"></script>
 <script src="../js/deco-common.js"  type="text/javascript"></script>

@@ -15,12 +15,39 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 import xadmin
-from django.urls import path
+from django.urls import path, include
 from django.views.generic import TemplateView
-from users.views import LoginView
+from django.conf.urls import url
+from django.views.static import serve
+from mc_online.settings import MEDIA_ROOT
+
+from users.views import (
+	LoginView, RegisterView, ActiveUserView,
+	ForgetPwdView, ResetView, ModifyPwdView,
+)
+from organization.views import OrgView
 
 urlpatterns = [
 	path('xadmin/', xadmin.site.urls),
 	path('', TemplateView.as_view(template_name='index.html'), name='index'),
-	path('login/', LoginView.as_view(), name='login')
+	path('login/', LoginView.as_view(), name='login'),
+	path('register/', RegisterView.as_view(), name='register'),
+	path('captcha/', include('captcha.urls')),
+	path('forget/', ForgetPwdView.as_view(), name='forget_pwd'),
+	# 邮件验证界面
+	url(r'^active/(?P<active_code>.*?)/$', ActiveUserView.as_view(),
+			name='user_active'),
+	url(r'^reset/(?P<active_code>.*?)/$', ResetView.as_view(),
+			name='reset_pwd'),
+	url(r'^modify_pwd/(?P<active_code>.*?)/$', ModifyPwdView.as_view(),
+			name='modify_pwd'),
+	
+	# 课程机构url配置
+	url(r'^org/', include('organization.urls')),
+	
+	# 课程相关url配置
+	url(r'^course/', include('courses.urls')),
+	
+	# 上传文件访问
+	url(r'^media/(?P<path>.*)/$', serve, {'document_root': MEDIA_ROOT}),
 ]
